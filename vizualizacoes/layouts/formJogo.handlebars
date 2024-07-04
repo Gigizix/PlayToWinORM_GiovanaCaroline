@@ -1,25 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{{#if jogo}}
+
+<h1>Atualizar jogo!</h1>
+<form action="/jogos/{{jogo.id}}/update" method="post">
+
+    {{else }}
+
+    <h2>Cadastrar novo jogo!</h2>
     <form action="/jogos/novo" method="post">
+
+        {{/if}}
+
         <div>
             <label for="titulo">Titulo:</label>
-            <input type="text" id="titulo" name="titulo"/>
+            <input type="text" id="titulo" name="titulo" />
         </div>
         <div>
             <label for="descricao">Descrição: </label>
-            <input type="text" id="descricao" name="descricao"/>
+            <input type="text" id="descricao" name="descricao" />
         </div>
         <div>
             <label for="precoBase">Preço Base: </label>
-            <input type="text" id="precoBase" name="precoBase"/>
+            <input type="text" id="precoBase" name="precoBase" />
         </div>
-        <input type="submit" value="Cadastrar">
+
+        {{#if jogo}}
+
+        <input type="submit" value="Salvar">
+
+        {{else}}
+
+        <input type="submit" value="Cadastrar" />
+
+        {{/if}}
     </form>
-</body>
-</html>
