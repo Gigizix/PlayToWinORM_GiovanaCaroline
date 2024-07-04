@@ -14,9 +14,6 @@ const Conquista = db.define(
       allowNull: false,
     },
   },
-  {
-    tableName: "Conquistas",
-  }
 );
 
 Conquista.belongsTo(Jogo);
