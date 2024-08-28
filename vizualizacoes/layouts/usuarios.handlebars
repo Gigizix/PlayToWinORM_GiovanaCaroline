@@ -1,27 +1,26 @@
-<h1>Usuários Cadastrados</h1>
+<h1>Cadastre-se</h1>
 
-<a href="/usuarios/novo">Cadastrar novo usuário</a>
-
+<a href="/usuarios/novo">Cadastrar Usuario</a>
 <table border="1">
-  <!-- table row -->
-  <tr>
-    <!-- table head -->
-    <th>Id</th>
-    <th>Nickname</th>
-    <th>Nome</th>
-  </tr>
-  {{#each usuarios}}
     <tr>
-      <td>{{this.id}}</td>
-      <td>{{this.nickname}}</td>
-      <td>{{this.nome}}</td>
-      <td>
-        <a href="/usuarios/{{this.id}}/update">Atualizar</a>
-        <form action="/usuarios/{{this.id}}/delete" method="post">
-          <input type="submit" value="Excluir" />
-        </form>
-        <a href="/usuarios/{{this.id}}/cartoes">Ver cartões</a>
-      </td>
+        <td>ID</td>
+        <td>NickName</td>
+        <td>Nome</td>
+        <th>Ações</th>
     </tr>
-  {{/each}}
+    {{#each usuarios}}
+    <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.nickname}}</td>
+        <td>{{this.nome}}</td>
+        <td>
+            <button><a href="/usuarios/{{this.id}}/atualizar">Atualizar</a></button>
+            <form action="/usuarios/excluir" method="post">
+                <input name="id" type="hidden" value="{{this.id}}" />
+                <input type="submit" value="Excluir">
+            </form>
+           <button> <a href="/usuarios/{{this.id}}/cartoes">Ver Cartão</a></button>
+        </td>
+    </tr>
+    {{/each}}
 </table>
