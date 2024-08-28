@@ -1,19 +1,19 @@
-const conn=require("../db/conn");
-const {DataType, DataTypes}=require('sequelize');
+const db = require('../db/conn');
+const {DataTypes} = require("sequelize");
 
-const Jogo = conn.define('Jogo',{
+const Jogo = db.define("Jogo",{
     titulo:{
-        type:DataTypes.STRING,
-        required:false
+        type: DataTypes.STRING,
+        allowNull: false,
     },
     descricao:{
-        type:DataTypes.STRING,
-        required:false
+        type: DataTypes.STRING,
+        allowNull: false,
     },
     precoBase:{
-        type:DataTypes.DOUBLE,
-        required:false
-    },
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    }
 });
 
-module.exports = Jogo;
+module.exports = Jogo
