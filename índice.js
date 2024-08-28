@@ -1,4 +1,4 @@
-// Importações de módulos e configurações
+
 require("dotenv").config();
 const express = require("express");
 const conn = require("./db/conn");
@@ -19,13 +19,13 @@ app.set("view engine", "handlebars")
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Rotas Home
+// Rotas do Home
 
 app.get("/", (req, res) => {
   res.render("home");
 });
 
-// Rotas Usuarios
+// Rotas do Usuarios
 
 app.post("/usuario/novo", async (req, res) => {
   const dadosUsuario = {
@@ -78,7 +78,7 @@ app.post("/usuarios/excluir", async (req, res) => {
   }
 });
 
-// Rotas Jogo
+// Rotas do Jogo
 
 app.post("/jogo/novo", async (req, res) => {
   const dadosJogo = {
@@ -133,7 +133,7 @@ app.post("/jogos/excluir", async (req, res) => {
   }
 });
 
-// Rotas Cartoes
+// Rotas dos Cartoes
 
 app.get('/usuarios/:id/cartoes', async (req, res) => {
   const id = parseInt(req.params.id)
